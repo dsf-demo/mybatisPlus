@@ -1,0 +1,17 @@
+
+
+# 配置数据源
+spring:
+  profiles.active: ${profiles.activation}
+
+# 配置日志
+logging:
+  level:
+    root: warn
+    com.dsf.mp.performanceAnalysis.dao: trace
+  pattern:
+    console: '%p%m%n'
+
+
+mybatis-plus:
+  mapper-locations: ['classpath:/mapper/*Mapper.xml']

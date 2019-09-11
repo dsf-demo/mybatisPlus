@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dsf.mp.pagination.dao.UserMapper">
+    <sql id="Where_Clause">
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="vo.id!=null">
+                and id=#{vo.id}
+            </if>
+            <if test="vo.name!=null">
+                and name LIKE CONCAT('%',#{vo.name},'%')
+            </if>
+            <if test="vo.ageStart!=null">
+                and age >= #{vo.ageStart}
+            </if>
+            <if test="vo.ageEnd!=null">
+                and age  &lt;= #{vo.ageEnd}
+            </if>
+            <if test="vo.email!=null">
+                and email LIKE CONCAT('%',#{vo.email},'%')
+            </if>
+            <if test="vo.managerId!=null">
+                and managerId=#{vo.managerId}
+            </if>
+            <if test="vo.createTime!=null">
+                and createTime=#{vo.createTime}
+            </if>
+            <if test="vo.hobby!=null">
+                and EXISTS (
+                    SELECT 1 FROM `user_hobby` as ho
+                    where ho.user_id=`user`.id
+                    and ho.hobby like CONCAT('%',#{vo.hobby},'%')
+                )
+            </if>
+        </trim>
+    </sql>
+
+    <!--自定义sql-->
+    <select id="selectAll" resultType="com.dsf.mp.pagination.entity.User">
+        select * from `user` ${ew.customSqlSegment}
+    </select>
+
+    <!--自定义分页+多表联查-->
+    <select id="selectUserPage" resultType="com.dsf.mp.pagination.entity.User">
+        select *
+        from `user`
+        <include refid="Where_Clause"/>
+
+    </select>
+</mapper>

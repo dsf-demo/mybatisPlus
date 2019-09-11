@@ -1,0 +1,18 @@
+# 配置数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://testhost:3306/mp?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: '#Dsf135246'
+
+# 配置日志
+logging:
+  level:
+    root: warn
+    com.dsf.mp.sqlInjector.dao: trace
+  pattern:
+    console: '%p%m%n'
+
+mybatis-plus:
+  mapper-locations: ['classpath:/mapper/*Mapper.xml']

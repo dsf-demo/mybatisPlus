@@ -1,0 +1,45 @@
+# 配置数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://testhost:3306/mp?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: '#Dsf135246'
+
+# 配置日志
+logging:
+  level:
+    root: warn
+    com.dsf.mp.ar.dao: trace
+  pattern:
+    console: '%p%m%n'
+
+
+mybatis-plus:
+  mapper-locations: ['classpath:/mapper/*Mapper.xml']
+
+  #configuration 和 config-location 不能同时指定，
+  #configuration中的所有属性在mybatis配置文件中都可以配置
+  #  config-location: classpath:mybatis-config.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+  type-aliases-package: com.dsf.mp.ar.entity
+
+  global-config:
+    db-config:
+      #ID_WORKER是默认的全局主键策略
+      id-type: ID_WORKER
+
+      #NOT_NULL:默认，当实体类字段为null时，不引入到where
+      #IGNORED:当实体类字段为null时，仍然引入到where，即where field=null
+      #NOT_EMPTY：当实体类字段为null或为空串时，不引入到where
+      insert-strategy: NOT_NULL
+      updateStrategy: NOT_NULL
+      select-strategy: NOT_NULL
+
+      #表前缀+实体类名(驼峰转下划线) = 要操作的表
+#      table-prefix: mp_
+
+
+

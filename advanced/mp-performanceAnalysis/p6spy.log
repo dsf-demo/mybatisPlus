@@ -1,0 +1,6 @@
+ Consume Time：21 ms 2019-09-11 03:22:41
+ Execute SQL：SELECT id,name,age,email,manager_id,create_time,update_time,version FROM user WHERE id=1171357729945505793 AND deleted=0
+
+ Consume Time：17 ms 2019-09-11 12:14:14
+ Execute SQL：SELECT id,name,age,email,manager_id,create_time,update_time,version,deleted FROM user WHERE id=1171357729945505793 
+
