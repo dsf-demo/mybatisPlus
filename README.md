@@ -7,7 +7,7 @@ mybatis-plus官方链接：
 [MyBatis-Plus入门](https://www.imooc.com/learn/1130)  
 [MyBatis-Plus进阶](https://www.imooc.com/learn/1171)  
 
-###一、MyBatis-Plus入门：
+### 一、MyBatis-Plus入门：
 ```
     第1章 课程简介及快速入门               --start/mp-start  
     第2章 基本使用                        --start/mp-annotation  
@@ -18,7 +18,7 @@ mybatis-plus官方链接：
     第7章 通用service                     --start/mp-service  
 ``` 
 
-###二、MyBatis-Plus进阶:  
+### 二、MyBatis-Plus进阶:  
 ``` 
     第1章 概述                            --    
     第2章 逻辑删除                        --advanced/mp-fakeDelete
